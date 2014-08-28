@@ -32,12 +32,14 @@ bool CompareoRSCMP7Capture::GetMP7BufferAtLink(int linkid,std::vector < unsigned
   return true;
 }
 
-bool CompareoRSCMP7Capture::Compare(){
+bool CompareoRSCMP7Capture::CompareoRSCPoke(){
   
   bool flag=true;
    for (int i=0;i<NLinksoRSC;i++){
      for (int j=0;j<NwordsInLink;j++){
-      if (!((bufferoRSC[i][j]==bufferMP7[i][j]))) {std::cout<<"wrong"<<std::endl; flag=false;}
+      if (!((bufferoRSC[i][j]==bufferMP7[i][j]))) {
+      std::cout<<"ERROR, patternoRSC["<<i<<"]["<<j<<"] does not match with bufferMP7["<<i<<"]["<<j<<"]"<<std::endl;
+      flag=false;}
      }
    }
   return flag;  
