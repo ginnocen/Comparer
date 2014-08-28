@@ -12,7 +12,6 @@ using namespace std;
 #define NLinksoRSC 23
 #define NLinksMP7 23
 
-
 // Object to compare the payload of MP7 and oRSC
 
 class CompareoRSCMP7Capture{
@@ -25,24 +24,26 @@ public:
   int maplinkfromoRSCtoMP7(int);
   int maplinkfromMP7tooRSC(int);
 
-  bool SetoRSCPattern(const std::vector < std::vector < unsigned int > > &mypatternoRSC){
+  void SetoRSCPattern(const std::vector < std::vector < unsigned int > > &mypatternoRSC){
     patternoRSC.reserve(mypatternoRSC.size());
     copy(mypatternoRSC.begin(), mypatternoRSC.end(), patternoRSC.begin());
   }
 
-  bool SetoRSCBuffer(const std::vector < std::vector < unsigned int > > &mybufferoRSC){
+  void SetoRSCBuffer(const std::vector < std::vector < unsigned int > > &mybufferoRSC){
     bufferoRSC.reserve(mybufferoRSC.size());
     copy(mybufferoRSC.begin(), mybufferoRSC.end(), bufferoRSC.begin());
   }
   
-  bool SetMP7Buffer(const std::vector < std::vector < unsigned int > > &mybufferMP7){
+  void SetMP7Buffer(const std::vector < std::vector < unsigned int > > &mybufferMP7){
     bufferMP7.reserve(mybufferMP7.size());
     copy(mybufferMP7.begin(), mybufferMP7.end(), bufferMP7.begin());
   }
     
   bool GetoRSCBufferAtLink(int linkid, std::vector < unsigned int >&);
   bool GetMP7BufferAtLink(int linkid, std::vector < unsigned int >&);
-  bool Compare();
+  int CheckoRSCBufferLinkAlignment();
+  
+  bool CompareoRSCPoke();
   
 protected:
 
