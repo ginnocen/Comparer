@@ -10,7 +10,10 @@ using namespace std;
 
 #define NwordsInLink 1024
 #define NLinksoRSC 23
-#define NLinksMP7 23
+#define NLinksMP7 72
+
+#define NLinksForComparison 12
+
 
 // Object to compare the payload of MP7 and oRSC
 
@@ -38,12 +41,23 @@ public:
     bufferMP7.reserve(mybufferMP7.size());
     copy(mybufferMP7.begin(), mybufferMP7.end(), bufferMP7.begin());
   }
-    
+  
+//  void SetActiveLinksMP7BitMask(const  std::vector < unsigned int > &linkmap){
+//    activelinksMP7.reserve(linkmap.size());
+//   copy(linkmap.begin(), linkmap.end(), activelinksMP7.begin());
+//  }
+  
+//  void SetActiveLinksoRSCBitMask(const  std::vector < unsigned int > &linkmap){
+//    activelinksoRSC.reserve(linkmap.size());
+//    copy(linkmap.begin(), linkmap.end(), activelinksoRSC.begin());
+//  }
+  
   bool GetoRSCBufferAtLink(int linkid, std::vector < unsigned int >&);
   bool GetMP7BufferAtLink(int linkid, std::vector < unsigned int >&);
   int CheckoRSCBufferLinkAlignment();
   
   bool CompareoRSCPoke();
+  bool CompareoRSCMP7();
   
 protected:
 
@@ -52,6 +66,12 @@ private:
   std::vector < std::vector < unsigned int > > patternoRSC;
   std::vector < std::vector < unsigned int > > bufferoRSC;
   std::vector < std::vector < unsigned int > > bufferMP7;
+
+  int NlinksActiveoRSC;
+  int NlinksActiveMP7;
+  int offsetMP7;
+  
+  
   	
 };
 
