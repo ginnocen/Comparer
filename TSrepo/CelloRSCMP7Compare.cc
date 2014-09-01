@@ -40,7 +40,7 @@ void rcttsWorkerCell::CelloRSCMP7Compare::code()
   
   std::vector < std::vector < unsigned int > > myvectorLink;
 
-  for (int i=0;i<10;i++){
+  for (int i=0;i<1;i++){
     stringstream sst;
     stringstream test;
     sst << "Link" <<i;
@@ -48,8 +48,12 @@ void rcttsWorkerCell::CelloRSCMP7Compare::code()
     test<<mystringLink;
     if (!mystringLink.empty()) payload_ = new xdata::String(test.str());   
     
-    //std::istringstream iss (mystringLink);
+    std::istringstream iss (mystringLink);
     //for (int n=0; n<10; n++){int val; iss >> val; myvectorLink[i].push_back(val); }
+    for (int n=0; n<10; n++){
+      int val; 
+      iss >> val; 
+    }
  }
 //    for (int n=0; n<1024; n++){
 //      int val;
