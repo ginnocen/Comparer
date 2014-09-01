@@ -19,7 +19,7 @@ rcttsWorkerCell::CelloRSCMP7Compare::CelloRSCMP7Compare(Logger& log, tsframework
 {
   logger_ = Logger::getInstance(log.getName() +".CelloRSCMP7Compare");
   
-  for (int i=0;i<10;i++){
+  for (int i=0;i<72;i++){
     stringstream ss;
     ss << "Link" <<i;
     getParamList().insert(std::make_pair(ss.str(),new xdata::String("")));
@@ -44,10 +44,10 @@ void rcttsWorkerCell::CelloRSCMP7Compare::code()
   std::vector<unsigned int> tempVector;
   tempVector.resize(sizeof(array));
   myvectorLink.resize(6*sizeof(tempVector));
-  for(unsigned int i = 0; i<10; i++) myvectorLink[i].reserve(sizeof(array));
+  for(unsigned int i = 0; i<72; i++) myvectorLink[i].reserve(sizeof(array));
 
   unsigned int val; 
-  for (int i=0;i<10;i++){
+  for (int i=0;i<72;i++){
     stringstream sst;
     stringstream test;
     sst << "Link" <<i;
@@ -62,13 +62,12 @@ void rcttsWorkerCell::CelloRSCMP7Compare::code()
     }
  }
  
-   stringstream last;
-   last << "Value addss" <<myvectorLink[3][888];
-   payload_ = new xdata::String(last.str());   
+   //stringstream last;
+   //last << "testvalue" <<myvectorLink[70][777];
+   //payload_ = new xdata::String(last.str());   
    
    //LOG4CPLUS_INFO((logger_),  "test:"  << endl);
 
-    //if(1) payload_ = new xdata::String("ALL larger version  affanculo2");
-    //else payload_ = new xdata::String("b<0 TRIS!");
+    payload_ = new xdata::String("Comparison done");
   
  }
