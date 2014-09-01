@@ -14,7 +14,7 @@
 
 using namespace std;
 using namespace log4cplus;
-
+//THIS VERSION IS CONSISTENT WITH CACTUS COMMIT 30608
 rcttsWorkerCell::CelloRSCMP7Compare::CelloRSCMP7Compare(Logger& log, tsframework::CellAbstractContext* context):tsframework::CellCommand(log,context)
 {
   logger_ = Logger::getInstance(log.getName() +".CelloRSCMP7Compare");
